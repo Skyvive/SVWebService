@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="Gnm-FL-uSM">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gold Prices-->
+        <scene sceneID="suK-KH-uNj">
+            <objects>
+                <tableViewController id="vjb-5s-Bam" customClass="GoldPricesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dzH-1x-KyA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="GoldPriceTableViewCell" id="Awb-Bi-K38" customClass="GoldPriceTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Awb-Bi-K38" id="lPm-Ck-mDu">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Aec-xh-TXi">
+                                            <rect key="frame" x="8" y="13" width="151" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="151" id="Osi-hb-AyA"/>
+                                                <constraint firstAttribute="height" constant="21" id="vIw-6n-OVe"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Value" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2yb-Qb-sB8">
+                                            <rect key="frame" x="167" y="12" width="145" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="145" id="H1K-po-NFV"/>
+                                                <constraint firstAttribute="height" constant="21" id="LJ8-Rv-wU9"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="2yb-Qb-sB8" firstAttribute="trailing" secondItem="lPm-Ck-mDu" secondAttribute="trailingMargin" id="Bsq-c4-wr9"/>
+                                        <constraint firstItem="2yb-Qb-sB8" firstAttribute="top" secondItem="lPm-Ck-mDu" secondAttribute="topMargin" constant="4" id="d04-t7-SK0"/>
+                                        <constraint firstItem="Aec-xh-TXi" firstAttribute="top" secondItem="lPm-Ck-mDu" secondAttribute="topMargin" constant="5" id="iga-9z-MfW"/>
+                                        <constraint firstItem="Aec-xh-TXi" firstAttribute="leading" secondItem="lPm-Ck-mDu" secondAttribute="leadingMargin" id="v74-Oj-3Cl"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="dateLabel" destination="Aec-xh-TXi" id="v2L-L7-miD"/>
+                                    <outlet property="valueLabel" destination="2yb-Qb-sB8" id="zdb-fB-zlu"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="vjb-5s-Bam" id="Ddy-Hy-qc5"/>
+                            <outlet property="delegate" destination="vjb-5s-Bam" id="K86-Ld-Ffl"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Gold Prices" id="2g1-ES-v3V"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6tx-wp-ktB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="416" y="632"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Gcb-QG-KDb">
+            <objects>
+                <navigationController id="Gnm-FL-uSM" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3Vo-KO-1wM">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vjb-5s-Bam" kind="relationship" relationship="rootViewController" id="Ffm-Vf-s74"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fWd-Xf-WUS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-9" y="632"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

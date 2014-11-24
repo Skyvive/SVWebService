@@ -1,0 +1,26 @@
+PODS:
+  - AFNetworking (1.3.4)
+  - Expecta (0.3.1)
+  - JSONModel (1.0.1)
+  - Specta (0.2.1)
+  - SVWebService (0.1.0):
+    - AFNetworking (~> 1.3.0)
+    - JSONModel (~> 1.0.1)
+
+DEPENDENCIES:
+  - Expecta
+  - Specta (~> 0.2.1)
+  - SVWebService (from `../`)
+
+EXTERNAL SOURCES:
+  SVWebService:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AFNetworking: 80c4e0652b08eb34e25b9c0ff3c82556fe5967b4
+  Expecta: 03aabd0a89d8dea843baecb19a7fd7466a69a31d
+  JSONModel: 634100aaacbd89811bc8a03da209356e5989c569
+  Specta: 9141310f46b1f68b676650ff2854e1ed0b74163a
+  SVWebService: 76a5b835a3df0e0246b78859df39826003d44801
+
+COCOAPODS: 0.34.4
