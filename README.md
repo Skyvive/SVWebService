@@ -1,6 +1,6 @@
 # SVWebService
 
-[![CI Status](http://img.shields.io/travis/Skyvive/SVWebService.svg?style=flat)](https://travis-ci.org/bradhilton/SVWebService)
+[![CI Status](http://img.shields.io/travis/bradhilton/SVWebService.svg?style=flat)](https://travis-ci.org/bradhilton/SVWebService)
 [![Version](https://img.shields.io/cocoapods/v/SVWebService.svg?style=flat)](http://cocoadocs.org/docsets/SVWebService)
 [![License](https://img.shields.io/cocoapods/l/SVWebService.svg?style=flat)](http://cocoadocs.org/docsets/SVWebService)
 [![Platform](https://img.shields.io/cocoapods/p/SVWebService.svg?style=flat)](http://cocoadocs.org/docsets/SVWebService)
