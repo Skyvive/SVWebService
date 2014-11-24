@@ -1,0 +1,1 @@
+PODS_SVWEBSERVICE_SVWEBSERVICE_OTHER_LDFLAGS = -framework "MobielCoreServices" -framework "SystemConfiguration"

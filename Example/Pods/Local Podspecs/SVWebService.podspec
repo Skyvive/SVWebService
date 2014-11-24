@@ -10,14 +10,9 @@
 Pod::Spec.new do |s|
   s.name             = "SVWebService"
   s.version          = "0.1.0"
-  s.summary          = "A short description of SVWebService."
-  s.description      = <<-DESC
-                       An optional longer description of SVWebService
-
-                       * Markdown format.
-                       * Don't worry about the indent, we strip it!
-                       DESC
-  s.homepage         = "https://github.com/<GITHUB_USERNAME>/SVWebService"
+  s.summary          = "A minimalistic framework built on top of JSONModel and AFNetworking that makes REST networking dead simple."
+  s.description      = "SVWebService makes REST networking simple. You create services which will serve as interfaces to the API. These will return type-safe JSONModel objects. SVProvider offers convenience methods for GET, PUT, POST, and DELETE requests."
+  s.homepage         = "https://github.com/Skyvive/SVWebService"
   # s.screenshots     = "www.example.com/screenshots_1", "www.example.com/screenshots_2"
   s.license          = 'MIT'
   s.author           = { "Brad Hilton" => "brad.hilton.nw@gmail.com" }
@@ -33,7 +28,7 @@ Pod::Spec.new do |s|
   }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'SystemConfiguration', 'MobielCoreServices'
   s.dependency 'JSONModel', '~> 1.0.1'
   s.dependency 'AFNetworking', '~> 1.3.0'
 
