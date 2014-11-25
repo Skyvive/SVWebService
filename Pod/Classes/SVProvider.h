@@ -1,9 +1,9 @@
 //
 //  SVProvider.h
-//  SendOutCardsApp
+//  SVWebService
 //
 //  Created by Bradley Hilton on 10/20/14.
-//  Copyright (c) 2014 Send Out Cards, LLC. All rights reserved.
+//  Copyright (c) 2014 Skyvive, LLC. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
