@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "SVWebService"
-  s.version          = "0.1.0"
+  s.version          = "0.1.1"
   s.summary          = "A minimalistic framework built on top of JSONModel and AFNetworking that makes REST networking dead simple."
   s.description      = "SVWebService makes REST networking simple. You can create services which will serve as interfaces to the API. These will return type-safe JSONModel objects. SVProvider offers convenience methods for GET, PUT, POST, and DELETE requests."
   s.homepage         = "https://github.com/Skyvive/SVWebService"
