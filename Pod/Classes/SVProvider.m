@@ -143,7 +143,7 @@
             if ([self.service logging] == SVWebServiceLoggingAlways) [self logRequest:request response:(NSHTTPURLResponse *)response data:data start:start];
             NSInteger statusCode = ((NSHTTPURLResponse *)response).statusCode;
             if (statusCode > 299 && failure) {
-                failure([NSError errorWithDomain:@"HTTP Error" code:statusCode userInfo:@{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"Recieved a %li error.", (long)statusCode]}]);
+                failure([self errorWithRequest:request response:(NSHTTPURLResponse *)response data:data start:start]);
             } else if (success) {
                 success([self objectsForData:data]);
             }
@@ -151,28 +151,45 @@
     }];
 }
 
+- (NSError *)errorWithRequest:(NSURLRequest *)request response:(NSHTTPURLResponse *)response data:(NSData *)data start:(NSDate *)start
+{
+    NSString *log = [NSString stringWithFormat:@"%@%@", [self requestDescription:request], [self responseDescription:response request:request data:data start:start]];
+    NSDictionary *userInfo = @{NSLocalizedDescriptionKey:log};
+    return [NSError errorWithDomain:@"SVWebService" code:response.statusCode userInfo:userInfo];
+}
+
 - (void)logRequest:(NSURLRequest *)request
 {
-    NSMutableString *log = [NSMutableString string];
+    NSLog(@"%@", [self requestDescription:request]);
+}
+
+- (NSString *)requestDescription:(NSURLRequest *)request
+{
+    NSMutableString *description = [NSMutableString string];
     NSString *titleString = [NSString stringWithFormat:@"\n--> %@ %@", request.HTTPMethod, request.URL.absoluteString];
-    [log appendString:titleString];
-    [log appendString:[self headersString:request.allHTTPHeaderFields]];
+    [description appendString:titleString];
+    [description appendString:[self headersString:request.allHTTPHeaderFields]];
     if (request.HTTPBody.length > 0) {
-        [log appendString:[NSString stringWithFormat:@"\n%@", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]]];
+        [description appendString:[NSString stringWithFormat:@"\n%@", [[NSString alloc] initWithData:request.HTTPBody encoding:NSUTF8StringEncoding]]];
     }
-    [log appendString:@"\n-->"];
-    NSLog(@"%@", log);
+    [description appendString:@"\n-->"];
+    return description;
 }
 
 - (void)logRequest:(NSURLRequest *)request response:(NSHTTPURLResponse *)response data:(NSData *)data start:(NSDate *)start
+{
+    NSLog(@"%@", [self responseDescription:response request:request data:data start:start]);
+}
+
+- (NSString *)responseDescription:(NSHTTPURLResponse *)response request:(NSURLRequest *)request data:(NSData *)data start:(NSDate *)start
 {
     NSString *titleString = [NSString stringWithFormat:@"<-- %@ %@", request.HTTPMethod, response.URL.absoluteString];
     NSString *statusCode = [NSString stringWithFormat:@"%li", (long)response.statusCode];
     NSString *timeString = [NSString stringWithFormat:@"%0.2fs", [[NSDate date] timeIntervalSinceDate:start]];
     NSString *headersString = [self headersString:response.allHeaderFields];
     NSString *stringObject = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-    NSString *formattedLog = [NSString stringWithFormat:@"\n%@ (%@, %@)%@\n%@\n<--", titleString, statusCode, timeString, headersString, stringObject];
-    NSLog(@"%@", formattedLog);
+    NSString *description = [NSString stringWithFormat:@"\n%@ (%@, %@)%@\n%@\n<--", titleString, statusCode, timeString, headersString, stringObject];
+    return description;
 }
 
 - (NSString *)headersString:(NSDictionary *)allHeaderFields
